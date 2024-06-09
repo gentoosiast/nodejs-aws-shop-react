@@ -43,6 +43,10 @@ Runs tests in console, in browser or with coverage.
 
 Runs linting and formatting for all files in `src` folder.
 
+### `aws:bootstrap-deploy`
+
+Bootstrap AWS environment & deploy project to AWS (S3 Bucket & CloudFront). Bootstrapping only needed during initial deployment
+
 ### `aws:deploy`
 
 Deploy project to AWS (S3 Bucket & CloudFront)
