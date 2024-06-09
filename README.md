@@ -17,7 +17,7 @@ This is frontend starter project for nodejs-aws mentoring program. It uses the f
 
 ## AWS Deployment
 
-CloudFront URL: <https://d25voik319di7g.cloudfront.net/>
+CloudFront URL: <https://d356lkdl7wfoux.cloudfront.net>
 
 S3 Website: <http://s3-spa-shop-react.s3-website.eu-north-1.amazonaws.com/>
 

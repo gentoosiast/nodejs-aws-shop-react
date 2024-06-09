@@ -1,5 +1,5 @@
 import * as path from 'node:path';
-import { Stack, type StackProps } from 'aws-cdk-lib';
+import { RemovalPolicy, Stack, type StackProps } from 'aws-cdk-lib';
 import * as cloudfront from 'aws-cdk-lib/aws-cloudfront';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import * as s3 from 'aws-cdk-lib/aws-s3';
@@ -21,6 +21,8 @@ export class StaticSiteStack extends Stack {
       websiteIndexDocument: 'index.html',
       publicReadAccess: false,
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
+      autoDeleteObjects: true,
+      removalPolicy: RemovalPolicy.DESTROY,
     });
 
     s3Bucket.addToResourcePolicy(new iam.PolicyStatement({
@@ -41,6 +43,7 @@ export class StaticSiteStack extends Stack {
               isDefaultBehavior: true,
               compress: true,
               allowedMethods: cloudfront.CloudFrontAllowedMethods.GET_HEAD_OPTIONS,
+              viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
             }
           ],
         }
